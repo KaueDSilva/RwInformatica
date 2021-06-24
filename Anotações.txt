@@ -1,0 +1,72 @@
+AULA 1:
+
+Aprender as palavrinhas. Nao ter medo de falar nem de errar.
+Porgramar é ensinar o computador, entenda os padrões que o PC precisa para aprender!
+
+* Algoritmo:
+	Passo a passo
+	Conjunto de Regras
+* Lógica de Programação:
+	Maneira de pensar
+* Sintaxe:
+	Maneira correta de escrever
+
+Os caras ainda idicam pluginx que te ajudam afu, brabos demais.
+
+Sempre que tiver duvidas sobre css pesquisa no google Box Model css ele mostra perfeitamente como funciona
+todos os atributos do css.
+
+Vamos falar de tamanhos: Unidades de medida fixas são em pixel (PX)
+Porcentagem vai ser a porcentagem em PX: 50%
+REM é a multiplicação só que não se colcoa com vircula e sim com poonto
+
+Moobal frist design, faz primeiro para o cell, depois tablet e por ultimo desktop.
+
+Podemos colcoar mais de uma calss em uma mesma tag
+
+Porque assim não funcionou ?
+main,
+#home .image {
+  margin: 0;
+}
+
+Cada 16PX vale 1rem;
+
+A ideia da aula é tirar e colocar um tag do html usando JS.
+
+Existem propriedade no css que fazem transição por padrão. Tem que ler a documentação do w2school para 
+aprender mais.
+
+Os icones viraram fonts OMG!!!
+
+alert seria o println para sabermos as coisas na tela.
+
+Funções são chamados de objetos.
+
+Variaveis que não podem mudar são as const.
+
+Tem um objeto ou corpo, não sei a nomenclatura perfeita mas que se chama document e lá tudo é explicado e 
+redondinho para html.
+
+Podemos controlar tudo o html via JS usando essas paradinhas.
+
+console.log(toggle) mais uma forma de print
+
+Na hora que o scroll passar do final do header
+
+Aprendendo a instalar um biblioteca em JS.
+
+Sempre que for usar uma biblioteca de alguém mano le o HTML o CSS o JS e precisa usar API e entender 
+como o cara te permite estilizar as paradas.
+
+API em bibliotecas que vc ta usando de HTML, CSS ou JS sempre é uma docuumentação da biblioteca.
+
+
+Pega o habito de criar containers para conter o conteudo de cada section, tipo uma section pode 
+ser boa para sites, paginas de sites.
+
+
+O Grid ele pega os elementos dentro da caixa e te deixar estilizar entre eles, por exemplo: Criando uma
+div com outras 3 divs dentro dele vai me permitir espaçar entre elas e tals, faz o que der na telha kkkk
+
+

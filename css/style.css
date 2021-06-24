@@ -1,0 +1,539 @@
+/*######################  RESET  ######################*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*font-family: Verdana, Geneva, Tahoma, sans-serif; ISSO AQUI BOMBA*/
+}
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  /*overflow: hidden; /*Essa tag aqui está dizendo que o maximo de conteudo q pode ter é o 
+  tamanho da tela, ai ele pula para a de baixo */
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*######################  VARIABLES  ######################*/
+:root {
+  /*Porque deixar as variaveis dentro do root ? Porque de qualquer lugar do meu css terei acesso a elas. */
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 159;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+
+/*######################  BASE  ######################*/
+
+body {
+  font: 400 1rem 'DM Sans', sans-seif;
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased; /*Deixa mais "leve" a fonte dependendo do browser */
+}
+
+.title {
+  font: 700 1.875rem 'Poppins', sans-seif;
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  border-radius: 0.25rem;
+  display: inline-flex; /* Dessa forrma ele mantem o inline para sua largura mas respeita a altura que estamos colocando por caixa do flex*/
+  align-items: center; /* Esse cara só funciona com o display flex*/
+  padding: 0 2rem;
+  font: 500 1rem 'DM Sans', sans-seif;
+  transition: background 0.4s;
+}
+
+.button:hover {
+  background: var(
+    --base-color-alt
+  ); /*Qual a diferença entre background e background-color?*/
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  ); /*Eu mudo o hue e mudo as cores de todo o layout */
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  ); /*Eu mudo o hue e mudo as cores de todo o layout */
+}
+/*######################  LAYOUT  ######################*/
+.container {
+  /*margin: 0 auto; /*0 é em cima e em baixo e auto é direita e esquerda sim podemos colocar 4 valores aqui um para cada direção */
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+#header {
+  border-bottom: 1px solid #e4e4e4; /*Se eu apenas uso o border ele criar a bordar no quadrado inteiro assim to pedindo somente a de baixo */
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: var(--body-color);
+  top: 0;
+  left: 0;
+}
+
+#header.scroll {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15); /*1 = Sombra direita/ 2 = Baixo/ 4 = Espalhamento da sombra /3 = Densidade da sombra*/
+  transition: 0.2s;
+}
+
+main {
+  margin-top: calc(var(--header-height) + 2rem);
+}
+
+/*######################  LOGO  ######################*/
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-seif;
+  color: var(--title-color);
+}
+
+.logo span {
+  font: 700 1.31rem 'Poppins', sans-seif;
+  color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/*######################  NAVIGATION  ######################*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  align-items: center; /*Olhando de uma perspectiva vertical ele pegous meus 5.4rem e deixou perfeitamente no centro, acredito que colocando 50% também ia bombar */
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.3s; /*Assim eu fiz ele fazer a transição somente na cor*/
+  position: relative; /*Deixando o pai do hover::after relative vai funcienciar no absolute dele*/
+}
+
+nav ul li a:hover {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: var(--base-color);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/*############ AQUI MOSTRO O MENU ###############*/
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background-color: var(--body-color);
+  height: 100vh; /*É semelhante com por centagem, mas ele pega só o que tem na tela pixel*/
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center; /*Essa propriedade joga tudo bem no centro da tela, não apenas das latereais cima e baixo também*/
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem; /*Como o icone virou uma fonte ele tem tamanho igual palavras*/
+  cursor: pointer;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  right: 1.5rem;
+  transition: 0.2s;
+  top: -1.5rem;
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+/*############ FECHO MENU ###############*/
+
+/*######################  HOME  ######################*/
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  /*SudoElement */
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: var(--base-color-second);
+  position: absolute;
+  z-index: 0; /*São 3 dimensões: Eixo horizontal(X), eixo vertical(Y) e eixo de profundidade (Z) */
+  /*As funções top, rigth, bottom são habilitadas por conta do position */
+  /*margin-top: -16.8%;
+  margin-left: 16.7%; Se usar assim ele vai trollar o padding das sections*/
+  top: -16.8%;
+  left: 16.7%;
+  /*Porque o margin-right: -16.7%; não funcionou ?????? */
+}
+
+#home .image img {
+  position: relative;
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  /*USAR VIRGULA TE PERMITE COLOCAR MAIS DE UM CAMPO PARA ESTILIZAR NÃO TE DEIXAR MAIS ESPESIFICO */
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h2 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+}
+
+/*##################ABOUT###################*/
+
+#about {
+  background: white;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  /*SudoElement */
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: var(--base-color-second);
+  position: absolute;
+  z-index: 0; /*São 3 dimensões: Eixo horizontal(X), eixo vertical(Y) e eixo de profundidade (Z) */
+  /*As funções top, rigth, bottom são habilitadas por conta do position */
+  /*margin-top: -16.8%;
+  margin-left: 16.7%; Se usar assim ele vai trollar o padding das sections*/
+  top: -8.3%;
+  left: -33%;
+  /*Porque o margin-right: -16.7%; não funcionou ?????? */
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  /*USAR VIRGULA TE PERMITE COLOCAR MAIS DE UM CAMPO PARA ESTILIZAR NÃO TE DEIXAR MAIS ESPESIFICO */
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+/*O CSS ele sempre pega a ultima estilização a não ser que coloque um estilo mais espesifico */
+
+/*##################SERVICES###################*/
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0; /*Ele começa pelo canto superior direito e depois superior esquerdo ao inferior direito e inferior esquerdo*/
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/*##################testimonial###################*/
+#testimonials {
+  background-color: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.4rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover; /*Ele faz a img ou o que alimentar com isso e faz cabrir o espaço que tem*/
+  clip-path: circle(); /*Pensei que fariamos com o radius*/
+  margin-right: 0.5rem;
+}
+
+/*##################SWIPER###################*/
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--base-color);
+}
+
+/*##################CONTATO###################*/
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/*##################FOOTER###################*/
+footer {
+  background: var(--base-color);
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social a {
+  margin-right: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-block; /*O QUE EU OBSERVEI QUASE SEMPRE SE UM ESTILO TA COM BOOA LOGICA NÃO TEM COISA ERRADA NEM NADA SOBRESCREVENDO ARRISQUE UM DISPLAY ALGUMA COISA*/
+}
+
+footer .social a:hover {
+  transform: translateY(-8px); /*Pulinho dos icones*/
+}
+
+.back-to-top {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.3rem;
+  clip-path: circle();
+  font-size: 1.3rem;
+  line-height: 0;
+  visibility: inherit;
+  opacity: 0;
+
+  transition: 0.3s;
+  transform: translatey(
+    120%
+  ); /*translate ele mexe com os eixos da tela y e x cima baixo e lados*/
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translatey(
+    0
+  ); /*E usasndo esses dois de forma simples fizemos um efeito bem maneiro*/
+}
+
+/*##################RESPONSIVO###################*/
+@media (min-width: 992px) {
+  /*To criando uma condição que quando ele for de =<992px de largura ele aplica essa estilização*/
+  body {
+    background-color: red;
+  }
+}

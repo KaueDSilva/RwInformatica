@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <!--Essa tag HTML é a tag root a tag principal onde tudo começa o main-->
+  <!--Acabei de deixar meu codigo PT-BR-->
+  <head>
+    <!--Cabeçario do layout-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!--Novamente tem que cuidar a ordem das informações pois como é por cascata ele sempre prioriza a ultima info tirando fora de lance a questão da espesificação-->
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Rw Informática</title>
+  </head>
+  <body>
+    <!--Body é tudo o que o suer vê-->
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">beauty<span>salon.</span></a
+        ><!--logo-->
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <!--Quando colocamos uma # estamos ancorando na pagina principal, no caso busgando uma home na pagina porincipal-->
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <!--menu-->
+        <div class="toggle icon-menu"></div>
+        <!--icon-menu-->
+        <div class="toggle icon-close"></div>
+        <!--icon-close-->
+      </nav>
+      <!--container-->
+    </header>
+    <!--Header-->
+    <main>
+      <!--Ter um HTML com boa sintax ajuda com o CEO IMPORTANTEEEEE-->
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="Img/photo1.jpg"
+              alt="Moça sorrindo penteando e secando outra moça."
+            /><!--Alt serve para pessoas com deficiencia-->
+          </div>
+          <!--Image-->
+          <div class="text">
+            <h2 class="title">Saúde natural para os seus cabelos</h2>
+            <!--title-->
+            <p>
+              Um salão exclusivo em São Paulo, especializado em tratamentos
+              naturais.
+            </p>
+            <a class="button" href="#">Agendar um horário</a
+            ><!--button-->
+          </div>
+          <!--text-->
+        </div>
+        <!--container/grid-->
+      </section>
+      <!--section/home-->
+
+      <div class="divider-1"></div>
+      <!--divider-1-->
+
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="Img/photo2.jpg"
+              alt="Três moças sorrindo com equipamentos para cortar e arrumar cabelos nas mãos."
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre nós</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem soluta a ab, quae consequuntur illo eligendi
+              necessitatibus, ex quod blanditiis nostrum! Sint provident eum
+              quis voluptatibus, incidunt perspiciatis. Quibusdam, cupiditate.
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+              voluptates magnam molestias commodi, maiores ratione inventore
+              odio a, nostrum ex autem nemo ducimus, voluptas quasi pariatur
+              impedit? Sed, sit quidem.
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+              expedita consequuntur, laborum delectus dolor incidunt rerum ex
+              est fugit necessitatibus sint dolorem aliquam hic, ab eligendi cum
+              sapiente. Quisquam, ut.
+            </p>
+          </div>
+        </div>
+        <!--container/grid-->
+      </section>
+      <!--section/about-->
+
+      <div class="divider-2"></div>
+
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Serviços</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur,
+              <strong>adipisicing</strong> elit. Vero, reiciendis. Deleniti
+              atque, earum ea, incidunt rem fugit dolorum et placeat praesentium
+              suscipit amet, cum nesciunt perspiciatis quod voluptatum. Dolore,
+              expedita.
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-woman-hair"></i
+              ><!--A tag I geralmente é usada para icones ele não epxlicou o porque (google)-->
+              <h3 class="title">Terapia Capilar</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+                distinctio iste
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-trim"></i>
+              <h3 class="title">Cortes</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Commodi consequatur in eligendi
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-cosmetic"></i>
+              <h3 class="title">Tratamentos</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Inventore sapiente incidunt.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--container/grid-->
+      </section>
+      <!--section/service-->
+
+      <div class="divider-1"></div>
+
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+          <div class="testimonials swiper-container">
+            <div class="swiper-wrapper">
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!--Essa tag ele é em especial para situações assim, como onde eu cito a frase de terceiros-->
+                  <p>
+                    <span>&ldquo;</span
+                    ><!--Existem caracteres especiais dentro do html que são chamados pelo e comercial "&"-->
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Optio nemo distinctio ut ipsa ratione inventore adipisci
+                    suscipit sit ducimus, cum
+                  </p>
+                  <cite>
+                    <img src="Img/User3.jpg" alt="Foto de Kaue Padilha" />
+                    Kaue Padilha
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!--Essa tag ele é em especial para situações assim, como onde eu cito a frase de terceiros-->
+                  <p>
+                    <span>&ldquo;</span
+                    ><!--Existem caracteres especiais dentro do html que são chamados pelo e comercial "&"-->
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Optio nemo distinctio ut ipsa ratione inventore adipisci
+                    suscipit sit ducimus, cum
+                  </p>
+                  <cite>
+                    <img src="Img/User1.jpg" alt="Foto de Kaue Silva" />
+                    Kaue Silva
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <!--Essa tag ele é em especial para situações assim, como onde eu cito a frase de terceiros-->
+                  <p>
+                    <span>&ldquo;</span
+                    ><!--Existem caracteres especiais dentro do html que são chamados pelo e comercial "&"-->
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Optio nemo distinctio ut ipsa ratione inventore adipisci
+                    suscipit sit ducimus, cum
+                  </p>
+                  <cite>
+                    <img src="Img/User2.jpg" alt="Foto de Kaue Afonso" />
+                    Kaue Afonso
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato conosco!</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+              rerum obcaecati, fugiat cupiditate ex, est animi quam vel natus
+              omnis exercitationem suscipit, enim sed id adipisci.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send?phone=5551983589774&text=Chamaaa"
+              class="button"
+              target="_blank"
+              ><!--target="_blank" abre uma guia nova--><i
+                class="icon-whatsapp"
+              ></i
+              >Entrar em contato</a
+            >
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-phone"></i>51 99735-1363</li>
+              <li><i class="icon-map-pin"></i>R. Amauri Souza, 346</li>
+              <li>
+                <i class="icon-mail"></i>rwinformatica@rwwwinformaticati.com.br
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!--contact-->
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">beauty<span>salon.</span></a>
+          <p>©2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+        <!--brand-->
+
+        <div class="social">
+          <a href="https://www.instagram.com" target="_blank"
+            ><i class="icon-instagram"></i
+          ></a>
+          <a href="https://pt-br.facebook.com" target="_blank"
+            ><i class="icon-facebook"></i
+          ></a>
+          <a href="https://www.youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+        <!--social-->
+      </div>
+      <!--container/grid-->
+    </footer>
+
+    <a href="#home" class="back-to-top show"><i class="icon-chevron-up"></i></a>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
