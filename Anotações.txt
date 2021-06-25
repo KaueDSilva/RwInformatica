@@ -69,4 +69,5 @@ ser boa para sites, paginas de sites.
 O Grid ele pega os elementos dentro da caixa e te deixar estilizar entre eles, por exemplo: Criando uma
 div com outras 3 divs dentro dele vai me permitir espaçar entre elas e tals, faz o que der na telha kkkk
 
+Mudar tamanho da fonte conforme o tamanho do dispositivo.
 

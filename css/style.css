@@ -41,19 +41,23 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-seif;
+  --body-font: 'DM Sans', sans-seif;
 }
 
 /*######################  BASE  ######################*/
 
 body {
-  font: 400 1rem 'DM Sans', sans-seif;
+  font: 400 1rem var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased; /*Deixa mais "leve" a fonte dependendo do browser */
 }
 
 .title {
-  font: 700 1.875rem 'Poppins', sans-seif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 }
@@ -67,7 +71,7 @@ body {
   display: inline-flex; /* Dessa forrma ele mantem o inline para sua largura mas respeita a altura que estamos colocando por caixa do flex*/
   align-items: center; /* Esse cara só funciona com o display flex*/
   padding: 0 2rem;
-  font: 500 1rem 'DM Sans', sans-seif;
+  font: 500 1rem var(--body-font);
   transition: background 0.4s;
 }
 
@@ -107,11 +111,15 @@ body {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -139,19 +147,15 @@ body {
   transition: 0.2s;
 }
 
-main {
-  margin-top: calc(var(--header-height) + 2rem);
-}
-
 /*######################  LOGO  ######################*/
 
 .logo {
-  font: 700 1.31rem 'Poppins', sans-seif;
+  font: 700 1.31rem var(--title-font);
   color: var(--title-color);
 }
 
 .logo span {
-  font: 700 1.31rem 'Poppins', sans-seif;
+  font: 700 1.31rem var(--title-font);
   color: var(--base-color);
 }
 
@@ -178,7 +182,8 @@ nav ul li a {
   position: relative; /*Deixando o pai do hover::after relative vai funcienciar no absolute dele*/
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--base-color);
 }
 
@@ -193,7 +198,8 @@ nav ul li a::after {
   transition: width 0.2s;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
 }
 
@@ -476,6 +482,11 @@ footer {
   background: var(--base-color);
 }
 
+footer.section {
+  /*Sempre que for mirar em uma tag e quer a class dessa espesifica tag colocar nome da tag .sction sem o espaço se não ele vai procurar uma .section dentro dessa tag não nela mesmo*/
+  padding: 4rem 0;
+}
+
 footer .logo {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -531,9 +542,128 @@ footer .social a:hover {
 }
 
 /*##################RESPONSIVO###################*/
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
+  /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
+  /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem; /**/
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  main {
+    margin-top: var(--header-height);
+  }
+  /*####################LAYOUT PRONCIPAL HOME#########################*/
+  /*####################LAYOUT PRONCIPAL HOME#########################*/
+  #home .container {
+    grid-auto-flow: column;
+    width: fit-content;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0; /*O order só funciona dentro de uma tag que tem atributo grid ouu se fosse display:flex*/
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /*####################SOBRE#########################*/
+  /*####################SOBRE#########################*/
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+  }
+  /*####################services#########################*/
+  /*####################services#########################*/
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr; /*Esse carinha ele fraciona no número X de frações que quisermos e podemos dar mais enfase no caso dar mais espaços em uma fração do que nas outras por exemplo 2fr 1fr 1fr a primeira terá um pedaço maior*/
+  }
+
+  /*####################TESTIMONIALS#########################*/
+  /*####################TESTIMONIALS#########################*/
+  #testimonials .container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /*####################CONTACT#########################*/
+  /*####################CONTACT#########################*/
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /*####################FOOTER#########################*/
+  /*####################FOOTER#########################*/
+  footer.section {
+    padding: 3.75rem 0;
+  }
+  footer .container {
+    grid-auto-flow: column; /*Está criando columos conforme a quantidade de tag dentro se tivesse 3 divs criaria 3 colunas */
+    align-items: center; /*ALinha pelo eixo X(Horizonte) e assim se no Y(vertical) estiver zoado ele deixa tudo reto */
+    justify-content: space-between; /*Essa prorpiedade coloca espaçamento entre as infos que tem dentro da tag que está alimentando*/
+  }
+
+  footer .logo,
+  footer .logo span {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 992px) /*Nome = Break Points*/ {
   /*To criando uma condição que quando ele for de =<992px de largura ele aplica essa estilização*/
-  body {
-    background-color: red;
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
   }
 }

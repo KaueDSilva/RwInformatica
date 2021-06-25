@@ -20,14 +20,14 @@ const header = document.querySelector('#header') //Usar variaveis de forma intel
 const navHeigth = header.offsetHeight
 
 //Criando um avendo na janela atual ...
-window.addEventListener('scroll', function () {
+function changeHeaderWhenScroll() {
   if (window.scrollY >= navHeigth) {
     //Qual a diferença entre toggle e add ????
     header.classList.add('scroll') //Olhe pelo angulo de quanto o scroll da pagina desceu e ficou maior
   } else {
     header.classList.remove('scroll')
   }
-})
+}
 
 //Carousel
 const swiper = new Swiper('.swiper-container', {
@@ -36,7 +36,14 @@ const swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      //Aqui é o tamanho da tela para aparecer corretamente quando for maior que tablet, no caso ele coloca sempre dois ao mesmo tempo na tela
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 //ScrollReveal = Mostra os elementos quando scrolla a pagina
@@ -51,22 +58,55 @@ const scrollReveal = ScrollReveal({
 scrollReveal.reveal(
   `#home .text, #home .image,
 #about .text, #about .image,
-#services header, #services .card,
+#services header, #services .card, 
 #testimonials header, #testimonials .testimonials,
 #contact .text, #contact .link
+footer .brand, footer .social
 `,
   { interval: 100 }
 )
 
 //Button back-to-top
-
 const backToTop = document.querySelector('.back-to-top')
-window.addEventListener('scroll', function () {
+
+function backTop() {
   if (window.scrollY >= 560) {
     backToTop.classList.add('show')
   } else {
     backToTop.classList.remove('show')
   }
+}
+
+//Menu ativo conforme a seção visivel na pag (MT TOP)
+const sections = document.querySelectorAll('main section[id]') //Todas as tags section que contem id
+
+function activateMenuAtCurrentSection() {
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
+
+  for (const section of sections) {
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('id')
+
+    const checkpointStart = checkpoint >= sectionTop
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd) {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.remove('active')
+    }
+  }
+}
+
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backTop()
+  activateMenuAtCurrentSection()
 })
 
 //Para funcionar esse windows ele necessariamente precisa ser na linha sucetora da variavel ???
