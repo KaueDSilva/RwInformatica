@@ -9,7 +9,7 @@ function chageColor() {
     color.style.setProperty('--title-color', 'hsl(var(--hue) 41% 10%)')
     color.style.setProperty('--base-color', 'hsl(var(--hue) 36% 57%)')
     color.style.setProperty('--color-footer', 'hsl(var(--hue) 36% 57%)')
-    color.style.setProperty('--base-color-second', 'hsl(var(--hue) 41% 10%)')
+    color.style.setProperty('--base-color-second', 'hsl(var(--hue) 65% 88%)')
     color.style.setProperty('--text-color', 'hsl(0 0% 46%)')
     isDarks = false
   } else {
