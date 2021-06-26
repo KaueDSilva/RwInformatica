@@ -546,6 +546,10 @@ footer .social a:hover {
   /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
   /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
   /*AQUI INICIA OS TESTE*/
+  #header .flex {
+    display: flex;
+    gap: 2rem;
+  }
   #header .interruptor {
     justify-items: center;
     align-items: center;
@@ -567,14 +571,12 @@ footer .social a:hover {
     bottom: 0;
     background: white;
     transition: 0.3s;
-    border: 0.29rem solid white;
+    border: 0.1rem solid white;
     box-shadow: 0.06rem 0.06rem 0.06rem rgba(0, 0, 0, 0.1);
   }
   .slider::before {
     position: absolute;
     content: '';
-    bottom: 0.875rem;
-    top: 0.5rem;
     background-color: lightgray;
     transition: 0.5s;
   }
@@ -588,9 +590,13 @@ footer .social a:hover {
     border-radius: 2.18rem;
   }
   .slider.round:before {
-    width: 50%;
-    height: 100%;
-    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+  }
+  .interruptor input:checked + .slider::before {
+    transform: translateX(1em);
+    background: yellow;
   }
   /*AQUI FINALIZA OS TESTE*/
   .container {
