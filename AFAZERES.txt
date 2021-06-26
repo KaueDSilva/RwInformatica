@@ -1,0 +1,6 @@
+1 - Trocar as imagens.
+2 - Trocar pac de icones.
+3 - Descobrir como fazer o botão de tema
+4 - Codar uma forma do tema escuro.
+
+slider

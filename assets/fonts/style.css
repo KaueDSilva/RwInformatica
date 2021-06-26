@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ioh0qr');
-  src:  url('fonts/icomoon.eot?ioh0qr#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ioh0qr') format('truetype'),
-    url('fonts/icomoon.woff?ioh0qr') format('woff'),
-    url('fonts/icomoon.svg?ioh0qr#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?hj5pvn');
+  src:  url('fonts/icomoon.eot?hj5pvn#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hj5pvn') format('truetype'),
+    url('fonts/icomoon.woff?hj5pvn') format('woff'),
+    url('fonts/icomoon.svg?hj5pvn#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-key:before {
+  content: "\e902";
+}
+.icon-server:before {
+  content: "\e908";
+}
+.icon-database:before {
+  content: "\e908";
+}
+.icon-display:before {
+  content: "\e90a";
+}
 .icon-chevron-up:before {
   content: "\e90c";
 }
@@ -33,9 +45,6 @@
 }
 .icon-close:before {
   content: "\e901";
-}
-.icon-cosmetic:before {
-  content: "\e902";
 }
 .icon-facebook:before {
   content: "\e903";
@@ -52,14 +61,8 @@
 .icon-menu:before {
   content: "\e907";
 }
-.icon-trim:before {
-  content: "\e908";
-}
 .icon-whatsapp:before {
   content: "\e909";
-}
-.icon-woman-hair:before {
-  content: "\e90a";
 }
 .icon-youtube:before {
   content: "\e90b";

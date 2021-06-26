@@ -30,11 +30,12 @@ img {
 :root {
   /*Porque deixar as variaveis dentro do root ? Porque de qualquer lugar do meu css terei acesso a elas. */
   --header-height: 4.5rem;
-
+  --color-footer: hsl(var(--hue) 36% 57%);
   /* colors */
-  --hue: 159;
+  --hue: 200;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
+  --button-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
   --base-color-alt: hsl(var(--hue) 57% 53%);
   --title-color: hsl(var(--hue) 41% 10%);
@@ -61,10 +62,53 @@ body {
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 }
+.switch {
+  display: block;
+  position: relative;
+  margin: auto;
+  width: 2rem;
+  height: 1rem;
+}
 
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  transition: 0.3s;
+  border: 0.1rem solid white;
+  box-shadow: 0.06rem 0.06rem 0.06rem rgba(0, 0, 0, 0.1);
+}
+.slider::before {
+  position: absolute;
+  content: '';
+  background-color: lightgray;
+  transition: 0.5s;
+}
+.switch input {
+  display: none;
+}
+input:checked + .slider {
+  background-color: black;
+}
+.slider.round {
+  border-radius: 2.18rem;
+}
+.slider.round:before {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+input:checked + .slider::before {
+  transform: translateX(1em);
+  background: #ffff9b;
+}
 .button {
   cursor: pointer;
-  background-color: var(--base-color);
+  background-color: var(--button-color);
   color: var(--text-color-light);
   height: 3.5rem;
   border-radius: 0.25rem;
@@ -127,7 +171,7 @@ body {
 }
 
 .section header strong {
-  color: var(--base-color);
+  color: var(--title-color);
 }
 
 #header {
@@ -315,7 +359,7 @@ nav.show div.icon-close {
 /*##################ABOUT###################*/
 
 #about {
-  background: white;
+  background: var(--body-color);
 }
 
 #about .container {
@@ -385,7 +429,7 @@ nav.show div.icon-close {
 
 /*##################testimonial###################*/
 #testimonials {
-  background-color: white;
+  background-color: var(--body-color);
 }
 
 #testimonials .container {
@@ -419,6 +463,9 @@ nav.show div.icon-close {
   left: -1.875rem;
   color: var(--base-color);
 }
+#testimonials blockquote p {
+  color: var(--text-color);
+}
 
 #testimonials cite {
   display: flex;
@@ -429,7 +476,7 @@ nav.show div.icon-close {
 #testimonials cite img {
   width: 2rem;
   height: 2rem;
-  object-fit: cover; /*Ele faz a img ou o que alimentar com isso e faz cabrir o espaço que tem*/
+  object-fit: cover; /*Ele faz a img ou o que alimentar com isso, caber no espaço que tem*/
   clip-path: circle(); /*Pensei que fariamos com o radius*/
   margin-right: 0.5rem;
 }
@@ -479,7 +526,7 @@ nav.show div.icon-close {
 
 /*##################FOOTER###################*/
 footer {
-  background: var(--base-color);
+  background: var(--color-footer);
 }
 
 footer.section {
@@ -495,6 +542,10 @@ footer .logo {
 footer .brand p {
   color: var(--text-color-light);
   margin-bottom: 0.75rem;
+}
+
+footer .brand span {
+  color: var(--text-color-light);
 }
 
 footer i {
@@ -515,7 +566,7 @@ footer .social a:hover {
 
 .back-to-top {
   background-color: var(--base-color);
-  color: var(--text-color-light);
+  color: var(--title-color);
   position: fixed;
   right: 1rem;
   bottom: 1rem;
@@ -545,6 +596,8 @@ footer .social a:hover {
 @media (min-width: 1200px) {
   /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
   /*####################ARRUMANDO ESPAÇOS DAS PAGINAS#########################*/
+  /*AQUI INICIA OS TESTE*/
+  /*AQUI FINALIZA OS TESTE*/
   .container {
     max-width: 1120px;
     margin-left: auto;
@@ -553,7 +606,6 @@ footer .social a:hover {
   .section {
     padding: 10rem 0;
   }
-
   .section header,
   #testimonials header {
     max-width: 32rem;
@@ -575,6 +627,7 @@ footer .social a:hover {
   nav .menu ul {
     display: flex;
     gap: 2rem; /**/
+    align-items: center;
   }
 
   nav .menu ul li a.title {
@@ -611,6 +664,10 @@ footer .social a:hover {
     order: 0; /*O order só funciona dentro de uma tag que tem atributo grid ouu se fosse display:flex*/
     max-width: 24rem;
     text-align: left;
+  }
+
+  #home .slider {
+    order: 2;
   }
 
   /*####################SOBRE#########################*/

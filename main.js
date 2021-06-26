@@ -1,6 +1,28 @@
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
+var isDarks = false
 
+function chageColor() {
+  var color = document.querySelector(':root')
+  if (isDarks) {
+    color.style.setProperty('--body-color', 'hsl(0 0% 98%)')
+    color.style.setProperty('--title-color', 'hsl(var(--hue) 41% 10%)')
+    color.style.setProperty('--base-color', 'hsl(var(--hue) 36% 57%)')
+    color.style.setProperty('--color-footer', 'hsl(var(--hue) 36% 57%)')
+    color.style.setProperty('--base-color-second', 'hsl(var(--hue) 65% 88%)')
+    color.style.setProperty('--text-color', 'hsl(0 0% 46%)')
+    isDarks = false
+  } else {
+    color.style.setProperty('--body-color', '#252525')
+    color.style.setProperty('--title-color', '#515bc9')
+    color.style.setProperty('--base-color', '#f3f3f3')
+    color.style.setProperty('--color-footer', '#252525')
+    color.style.setProperty('--base-color-second', '#515bc9')
+    color.style.setProperty('--text-color', 'white')
+    isDarks = true
+    //hsl(0 0% 98%)
+  }
+}
 for (const element of toggle) {
   element.addEventListener('click', function () {
     nav.classList.toggle('show') //Aqui está a magia com o .classlist.toggle ele troca a class do pai a variavel nav, porem ainda preciso estudar mais para entender melhor como isso rolou.
